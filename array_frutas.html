@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!-- Define o tipo do documento como HTML5-->
+
+<html lang="pt-br">
+    <!-- Início do documento HTML-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Array em JavaScript</title>
+
+    <style>
+        /* Estilização geral do corpo da página*/
+
+        body {
+            font-family: arial, sans-serif; /* Define a fonte*/
+            background-color: #f4f6f8; /* Cor de fundo da página*/
+            padding: 30px; /* espaçamento interno*/
+        }
+
+        /* Estlização do título */
+        h1 {
+            color: #333;  /* Cor do texto */
+            text-align: center;  /* Centraliza o texto*/
+        }
+
+        /* Estilização da div ondeo resultado será exibido */
+        #resultado {
+            background-color: #fff;  /* Fundo Branco */
+            padding: 15px;   /* Espaçamento interno */
+            border-radius: 10px; /* Bordas arredondadas*/
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0, 1);  /* Sombra leve */
+            width: 350px;  /* Largura fixa*/
+            margin: 20px auto;  /*Centraliza horizontalmente */
+        }
+
+        /* Estilização geral dos botões */
+        button {
+            margin: 5px;  /*espaço externo*/
+            padding: 10px 15px;  /* Espaçamento interno*/
+            font-size: 16px; /* Tamanho do texto*/
+            border-radius: 6px;  /*bordas arredondadas*/
+            border: none;  /* Remove borda padrão*/
+            cursor: pointer;  /* Cursor de mãozinha*/
+            background-color: #007bff; /* cor azul*/
+            color: white;  /* Texto branco*/
+            transition: 0.2s;  /* Animação suave */
+        }
+
+        /* Efeito ao passar o mouse no botão */
+        button:hover {
+            background-color: #0056b3; /* Azul mais escuro */
+        }
+    </style>
+    </head>
+
+    <body>
+
+<!-- Título principal da página -->
+ <h1>Exemplo de uso de array em JavaScript 🍎🍌🍊</h1>
+
+ <!-- Div onde o conteúdo do array será exibido-->
+  <div id="resultado"></div>
+
+  <!-- Div que contém os botões -->
+   <div style="text-align: center;">
+    <!-- Ao clicar, chama a função mostrarFrutas()-->
+     <button onclick="mostrarFrutas()">Mostrar Frutas</button>
+
+     <!-- Ao clicar, chama a função adicionarFruta()-->
+      <button onclick="adicionarFruta()">Adicionar Fruta</button>
+
+      <!-- Ao clicar, chama a função removerUltima()-->
+       <button onclick="removerUltima()">Remover Ultima</button>
+   </div>
+
+   <script>
+
+    // 1️⃣ Criação do array vazio chamado "frutas"
+    // Um array é uma estrutura que armazena vários valores em uma única variavel
+    let frutas = [];
+
+    // 2️⃣ Função responsável por exibir o contyeúdo do array na tela
+    function mostrarFrutas() {
+
+        // Captura a div onde o resultado será mostrado
+        let resultadoDiv = document.getElementById("resultado");
+
+        // Verifica se o array está vazio
+        if (frutas.length === 0) {
+
+            // Se estiver vazio, mostra mensagem informando
+            resultadoDiv.innerHTML = `
+            <strong>Array completo:</strong> [] <br>
+            <strong>Quantidade de frutas:</strong> 0 <br>
+            <em>O array está vazio.</em>
+            `;
+        } else {
+
+            // Caso o array tenha elementos
+            // frutas.join (", ") transforma o array em texo separado por vírgula
+            resultadoDiv.innerHTML = `
+            <strong>Array completo:</strong> [${frutas.join(", ")}] <br>
+            <strong>Quantidade de frutas:</strong> ${frutas.length} <br>
+            `;
+        }
+    }
+
+    // 3️⃣ Função para adicionar uma nova fruta ao array
+    function adicionarFruta() {
+
+        // prompt abre uma caixa para o usuario digitar algo
+        let novaFruta = prompt("Digite o nome da nova fruta:");
+
+        //Verifica se o usuario digitou algo
+        if (novaFruta) {
+
+            // push() adiciona um elemento no FINAL do array
+            frutas.push(novaFruta); 
+
+            // Atualiza a exibição após adicionar
+        }
+    }
+
+    // 4️⃣ Função para remover a última fruta do array
+    function removerUltima() {
+
+        // Verifica se o array tem elementos
+        if (frutas.length > 0) {
+
+            //pop() remove o ÚLTIMO elemento do array
+            frutas.pop();
+        } else {
+
+            // Se estiver vazio, mostra alerta
+            alert("O array já está vazio!");
+        }
+
+        // Atualiza a exibição após remover
+        mostrarFrutas();
+    }
+
+    // Ao carregar a página, já mostra o estado inicial do array
+    mostrarFrutas();
+
+   </script>
+
+</body>
+</html>
